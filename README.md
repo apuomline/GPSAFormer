@@ -1,1 +1,1 @@
-# The source code for the GPSAFormer paper will be updated soon.
+# Gated Partial Self-Attention Network for Medical Image Segmentation
