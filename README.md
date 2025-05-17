@@ -12,7 +12,8 @@ Ubuntu 20.04 LTS system, an NVIDIA RTX A10 GPU, Python version 3.8, Pytorch vers
 
 - Clone this repository:
 ```bash
-
+git clone https://github.com/apuomline/trasnunetr.git
+cd transunetr
 ```
 
 
