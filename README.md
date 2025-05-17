@@ -8,17 +8,12 @@ TransUNETR has successfully demonstrated the viability of integrating self-atten
 
 ## Implementation
 - The experimental environment of this paper includes:
-Ubuntu 20.04 LTS system, an i9-12900K CPU, an NVIDIA RTX A10 GPU, Python version 3.8, Pytorch version 1.13, and CUDA version 11.6.
+Ubuntu 20.04 LTS system, an NVIDIA RTX A10 GPU, Python version 3.8, Pytorch version 1.13, and CUDA version 11.6.
 
 - Clone this repository:
 ```bash
-git clone https://github.com/Jiaoyang45/Rolling-Unet
-cd Rolling-Unet
+
 ```
-
-- In the paper, for the BUSI, GlaS, and CHASEDB1 datasets, we performed three random splits using the "train_test_split" function, with corresponding random seeds of 41, 1029, and 3407, respectively. ISIC 2018 dataset only performed random split once, with a corresponding seed of 41. To ensure the reproducibility of the experiment, we strictly set the random seeds for functions such as Torch, Python, and Numpy to 1029 using the "seed_torch" function.
-
-- For the CHASEDB1 dataset, The "test_size" of "train_test_split" is not 0.2, but 0.27, which makes the training set exactly 20 images, which is a multiple of batch_size, in order to fully utilize the data for learning. The remaining 8 images are fully utilized for evaluation.
 
 
 ### Datasets
@@ -51,17 +46,16 @@ inputs
 ### Training and Validation
 - Train the model.
 ```
-python train.py
+  python  train.py --dataset Dataset_name --input_w 256 --input_h 256 --img_ext .png --mask_ext .png --epochs 300 --name TransUNETR -b 6 
 ```
 - Evaluate.
 ```
-python val.py
+  python  val.py  --name model_name
 ```
-- This code includes visualization of the training process through [tensorboardX](https://github.com/lanpa/tensorboardX), and calculation multiple indicators through [MedPy](https://github.com/loli/medpy?tab=readme-ov-file).
 
 
 ## Acknowledgements
-This code repository is implemented based on [UNeXt](https://github.com/jeya-maria-jose/UNeXt-pytorch). 
+This code repository is implemented based on [UNeXt](https://github.com/jeya-maria-jose/UNeXt-pytorch) and [Rolling-Unet](https://github.com/Jiaoyang45/Rolling-Unet). 
 
 
 ## References
@@ -70,9 +64,9 @@ This code repository is implemented based on [UNeXt](https://github.com/jeya-mar
 3) UCTransNet - [link](https://github.com/McGregorWwww/UCTransNet?tab=readme-ov-file)
 4) UNeXt - [link](https://github.com/jeya-maria-jose/UNeXt-pytorch)
 5) DconnNet - [link](https://github.com/Zyun-Y/DconnNet)
+6) Rolling-Unet - [link](https://github.com/Jiaoyang45/Rolling-Unet)
 
 
 ## Citations
-If this code is helpful for your study, please cite:
-1) Liu, Y., Zhu, H., Liu, M., Yu, H., Chen, Z., & Gao, J. (2024). Rolling-Unet: Revitalizing MLP’s Ability to Efficiently Extract Long-Distance Dependencies for Medical Image Segmentation. Proceedings of the AAAI Conference on Artificial Intelligence, 38(4), 3819-3827. https://doi.org/10.1609/aaai.v38i4.28173
+
 
